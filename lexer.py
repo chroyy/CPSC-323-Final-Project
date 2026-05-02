@@ -47,3 +47,26 @@ def tokenize(rawInput):
         else:
             tokens.append(Token(tokenType, val, lineNum))
     return tokens
+
+
+
+if __name__ == "__main__":
+    print("--- Testing Valid Input ---")
+    
+    # test 1: passable test
+    good_test = "int x = 10; while (x > 0) { x = x - 1; }"
+    try:
+        tokens = tokenize(good_test)
+        for t in tokens:
+            print(t)
+    except RuntimeError as e:
+        print(e)
+
+    print("\n--- Testing Lexical Error --- ")
+    
+    # test 2: invalid character @
+    bad_test = "int y = 5 @;"
+    try:
+        tokenize(bad_test)
+    except RuntimeError as e:
+        print(f"Caught expected error: {e}")
