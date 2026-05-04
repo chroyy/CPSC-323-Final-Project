@@ -132,3 +132,5 @@ if __name__ == "__main__":
         "{ int inner; inner = 5; } inner = 10;",
         "Test 9 - ERROR: Variable Used Outside Its Scope"
     )
+
+    run_pipeline(input("Enter your own test program (or press Enter to skip): "), "Custom Test")
